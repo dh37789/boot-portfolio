@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/user")
 public class UserController {
 	@Autowired
-	private UserService userService;
+	private UserServiceImpl userService;
 	
 	@RequestMapping(method = RequestMethod.GET, value="/{id}")
 	public @ResponseBody UserResponse get(@PathVariable(value="id") String id) {
