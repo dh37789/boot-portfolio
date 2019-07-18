@@ -6,17 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UserServiceImpl {
+public class UserServiceImpl implements UserService{
+	
 	@Autowired
 	private UserRepository userRepository;
 	
 	public User get(final String id) {
 		return userRepository.findById(id).orElse(null);
-//		return User.builder()
-//				.id("jns37789")
-//				.pass("1234")
-//				.name("오명학")
-//				.build();
 	}
 	
 	public User save(final User user) {
