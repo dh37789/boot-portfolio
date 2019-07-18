@@ -16,7 +16,7 @@
             <div class="col px-0">
                 <div class="row justify-content-center align-items-center">
                     <div class="col-lg-7 text-center pt-lg">
-                        <img src="@/assets/img/brand/title.png" style="width: 600px;" class="img-fluid">
+                        <img src="../../assets/img/brand/title.png" style="width: 600px;" class="img-fluid">
                     </div>
                 </div>
             </div>
@@ -24,13 +24,13 @@
             <div class="col-sm-4">
                 <span class="text-white alpha-7 ml-3">FrontEnd By</span>
                 <a href="https://kr.vuejs.org/" target="_blank" title="FrontEnd By Vue.js">
-                    <img src="@/assets/img/brand/vuetitle.png" style="height: 22px; margin-top: -3px">
+                    <img src="../../assets/img/brand/vuetitle.png" style="height: 22px; margin-top: -3px">
                 </a>
             </div>
             <div class="col-sm-4 mt-4 mt-sm-0 text-right">
                 <span class="text-white alpha-7">Template by</span>
                 <a href="https://www.creative-tim.com" target="_blank" title="Creative Tim - Premium Bootstrap Themes and Templates">
-                    <img src="@/assets/img/brand/creativetim-white-slim.png" class="ml-3" style="height: 30px;">
+                    <img src="../../assets/img/brand/creativetim-white-slim.png" class="ml-3" style="height: 30px;">
                 </a>
             </div>
         </div>

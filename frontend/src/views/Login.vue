@@ -23,18 +23,19 @@
             class="border-0"
           >
             <template>
-              <div class="btn-wrapper text-center"></div>
+              <div class="btn-wrapper text-center">
+              </div>
             </template>
             <template>
               <form role="form">
                 <base-input
-                  alternative
+                  alternative id="id"
                   class="mb-3"
                   placeholder="Email"
                   addon-left-icon="ni ni-email-83"
                 ></base-input>
                 <base-input
-                  alternative
+                  alternative id="pass"
                   type="password"
                   placeholder="Password"
                   addon-left-icon="ni ni-lock-circle-open"
@@ -43,7 +44,7 @@
                 <div class="text-center mt-3">
                   <base-button block type="primary">Sign In</base-button>
                   <base-button block type="neutral">
-                    <img slot="icon" src="@/assets/img/icons/common/google.svg">Google Login
+                    <img slot="icon" src="../assets/img/icons/common/google.svg">Google Login
                   </base-button>
                 </div>
               </form>
@@ -55,3 +56,27 @@
   </section>
   <!-- 1st Hero Variation -->
 </template>
+
+
+<script>
+
+import axios from 'axios'
+
+export default {
+  name: 'pass',
+  data: () => {
+    return{
+     users:[] 
+    }
+  },
+  created () {
+    axios.get('http://127.0.0.1:5000/user/')
+      .then(response => {
+        this.users = response.data
+    })
+    .catch(e => {
+      console.log('error : ', e)
+    })
+  }
+}
+</script>
