@@ -35,12 +35,12 @@ public class UserController {
 	@RequestMapping(method = RequestMethod.POST)
 	public @ResponseBody User save(User user) {
 		List<String> errors = new ArrayList<>();
-//		User user = UserAdapter.userItem(userRequest);
-//		try {
-			user = userService.save(user);
-//		} catch (final Exception e) {
-//			errors.add(e.getMessage());
-//		}
+		return user;
+	}
+	@RequestMapping(method = RequestMethod.POST, value="/auth")
+	public @ResponseBody User auth(User user) {
+		System.out.println(user.getUser_mail());
+		System.out.println(user.getUser_pass());
 		return user;
 	}
 }

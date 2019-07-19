@@ -18,12 +18,19 @@ import lombok.*;
 public class User{
 	
 	@Id
-	@Column(length = 100)
-	private String id;
+	@Column(length = 20)
+	private String user_mail;
 	
-	@Column(length = 100)
-	private String pass;
+	@Column(length = 500)
+	private String user_pass;
 	
-	@Column(length = 100)
-	private String name;
+	@Column(length = 10)
+	private String user_nm;
+
+	@Column(length = 12)
+	private String user_tel;
+	
+	@Column(length = 50)
+	private String user_add;
+	
 }
