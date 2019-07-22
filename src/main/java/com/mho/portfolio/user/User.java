@@ -1,11 +1,16 @@
 package com.mho.portfolio.user;
 
+import java.util.Collection;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import lombok.*;
 
@@ -32,5 +37,5 @@ public class User{
 	
 	@Column(length = 50)
 	private String user_add;
-	
+
 }
