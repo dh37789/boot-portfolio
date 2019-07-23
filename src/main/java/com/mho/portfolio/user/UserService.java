@@ -2,7 +2,9 @@ package com.mho.portfolio.user;
 
 import java.util.List;
 
-public interface UserService {
+import org.springframework.security.core.userdetails.UserDetailsService;
+
+public interface UserService extends UserDetailsService{
 	
 	public User get(final String id);
 	
