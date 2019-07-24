@@ -6,6 +6,7 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
@@ -44,7 +45,7 @@ public class User implements UserDetails{
 	@Column(length = 50)
 	private String user_add;
 
-	@ManyToMany
+	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name="userauth",
 			   joinColumns = @JoinColumn(name = "user_mail"),
 			   inverseJoinColumns = @JoinColumn(name = "auth_id"))
@@ -66,12 +67,12 @@ public class User implements UserDetails{
 
 	@Override
 	public String getPassword() {
-		return null;
+		return user_pass;
 	}
 
 	@Override
 	public String getUsername() {
-		return null;
+		return user_mail;
 	}
 
 	@Override
