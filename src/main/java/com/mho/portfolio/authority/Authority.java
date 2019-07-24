@@ -19,7 +19,6 @@ public class Authority {
 	@Column(length = 20)
 	private String auth_id;
 	
-	@Id
 	@Column(length = 20)
 	private String auth_name;
 	

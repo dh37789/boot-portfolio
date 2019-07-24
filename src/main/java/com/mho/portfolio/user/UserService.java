@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.security.core.userdetails.UserDetailsService;
 
-public interface UserService{
+public interface UserService extends UserDetailsService{
 	
 	public User get(final String id);
 	

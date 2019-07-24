@@ -1,5 +1,6 @@
 package com.mho.portfolio.user;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
@@ -14,8 +15,10 @@ public class UserServiceImpl implements UserService{
 	@Autowired
 	private UserRepository userRepository;
 	
-	public User loadUserByUsername(String username) throws UsernameNotFoundException {
+	@Override
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		User user = userRepository.findById(username).orElse(null);
+//		user.setAuthorities(getAuthorities(username));
 		return user;
 	}
 
@@ -33,5 +36,4 @@ public class UserServiceImpl implements UserService{
 	public List<User> getAll() {
 		return (List<User>)userRepository.findAll();
 	}
-
 }
