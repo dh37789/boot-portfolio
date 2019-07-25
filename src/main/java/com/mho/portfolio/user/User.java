@@ -24,7 +24,6 @@ import lombok.*;
 @Table(name = "user")
 @Getter @Setter
 @NoArgsConstructor
-@Builder
 public class User{
 
 	private static final long serialVersionUID = 1L;

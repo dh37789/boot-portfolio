@@ -10,4 +10,14 @@ public class MainController {
 	public String hime() {
 		return "Jello World!";
 	}
+	
+	@RequestMapping("/admin")
+	public String admin() {
+		return "This is admin page";
+	}
+	
+	@RequestMapping("/usera")
+	public String user() {
+		return "This is user page";
+	}
 }
