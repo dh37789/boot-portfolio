@@ -51,8 +51,7 @@ public class UserController {
 	
 	@RequestMapping(method = RequestMethod.POST, value="/auth")
 	public @ResponseBody User auth(User user) {
-		System.out.println(user.getUser_mail());
-		System.out.println(user.getUser_pass());
+		userService.loadUserByUsername(user.getUser_mail());
 		return user;
 	}
 	

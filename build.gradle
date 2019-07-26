@@ -20,7 +20,6 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-security'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.0'
-	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.0'
 	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	// testImplementation 'org.springframework.security:spring-security-test'
@@ -31,6 +30,8 @@ dependencies {
     // lombok
     implementation 'org.projectlombok:lombok:1.18.8'
     annotationProcessor 'org.projectlombok:lombok:1.18.8'
+	// jwt
+	implementation 'io.jsonwebtoken:jjwt:0.9.1'
     // Thymeleaf
     // implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 }
