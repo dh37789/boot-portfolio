@@ -9,6 +9,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.context.HttpSessionSecurityContextRepository;
 import org.springframework.web.bind.annotation.*;
 
@@ -42,17 +43,11 @@ public class UserController {
 		List<User> users = userService.getAll();
 		return users;
 	}
-//	
-	@RequestMapping(method = RequestMethod.POST)
-	public @ResponseBody User save(User user) {
-		List<String> errors = new ArrayList<>();
-		return user;
-	}
 	
 	@RequestMapping(method = RequestMethod.POST, value="/auth")
-	public @ResponseBody User auth(User user) {
-		userService.loadUserByUsername(user.getUser_mail());
-		return user;
+	public @ResponseBody UserDetails auth(User user) {
+		UserDetails userDetails = userService.loadUserByUsername(user.getUser_mail());
+		return userDetails;
 	}
 	
 	@RequestMapping(method = RequestMethod.POST, value="/login")

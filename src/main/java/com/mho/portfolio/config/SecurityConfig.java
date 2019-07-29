@@ -3,6 +3,7 @@ package com.mho.portfolio.config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -28,10 +29,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	private UserDetailsService userDetailsService;
 	private UserService userService;
 	
-	public SecurityConfig(UserDetailsService userDetailsService, UserService userService) {
+	public SecurityConfig(UserDetailsService userDetailsService, UserService userService,@Lazy JwtTokenProvider jwtTokenProvider) {
 		this.userDetailsService = userDetailsService;
 		this.userService = userService;
 		this.filter = new CustomCorsFilter();
+		this.jwtTokenProvider = jwtTokenProvider;
 	}
 	
 	
@@ -56,7 +58,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	        	.antMatchers("/admin").hasAuthority("ADMIN")
 	        	.antMatchers("/usera").hasAuthority("USER")
 	        .and()
-	        	.addFilterBefore(new JwtAuthenticationFilter(jwtTokenProvider), UsernamePasswordAuthenticationFilter.class);
+	        .addFilterBefore(new JwtAuthenticationFilter(jwtTokenProvider), UsernamePasswordAuthenticationFilter.class);
 	}
 	
 	@Override
