@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.*;
 
 import com.mho.portfolio.authority.AuthenticationToken;
 
-@RestController
-@RequestMapping("/user")
+//@RestController
+//@RequestMapping("/user")
 public class UserController {
 	
 	private final UserService userService;
