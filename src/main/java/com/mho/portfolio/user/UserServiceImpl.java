@@ -17,6 +17,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.mho.portfolio.advice.exception.CUserNotFoundException;
 import com.mho.portfolio.authority.Authority;
 
 @Service
@@ -33,8 +34,8 @@ public class UserServiceImpl implements UserService{
 
 	private PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 	
-	public User get(final String id) {
-		return userRepository.findById(id).orElse(null);
+	public User get(final String id){
+		return userRepository.findById(id).orElseThrow(CUserNotFoundException::new);
 	}
 	
 	public User save(final User user) {

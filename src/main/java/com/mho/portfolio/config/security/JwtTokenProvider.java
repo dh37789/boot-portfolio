@@ -1,4 +1,4 @@
-package com.mho.portfolio.config;
+package com.mho.portfolio.config.security;
 
 import java.util.Base64;
 import java.util.Date;
@@ -26,7 +26,7 @@ import lombok.RequiredArgsConstructor;
 @Component
 public class JwtTokenProvider {
 
-	@Value("spring.jwt.secret")
+	@Value("jwt.secret")
 	private String secretKey;
 	
 	private long tokenValidMilisecond = 1000L * 60 * 30;

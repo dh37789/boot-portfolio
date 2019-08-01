@@ -50,20 +50,20 @@ public class UserController {
 		return userDetails;
 	}
 	
-	@RequestMapping(method = RequestMethod.POST, value="/login")
-	public AuthenticationToken login(@RequestBody User user,
-									 HttpSession session) {
-		String username = user.getUser_mail();
-		String password = user.getUser_pass();
-		
-		UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(username, password);
-		Authentication authentication = authenticationManager.authenticate(token);
-		SecurityContextHolder.getContext().setAuthentication(authentication);
-		session.setAttribute(HttpSessionSecurityContextRepository.SPRING_SECURITY_CONTEXT_KEY,
-					SecurityContextHolder.getContext());
-		
-		user = userService.get(username);
-		return new AuthenticationToken(user.getUser_mail(), user.getAuthorities(), session.getId());
-		
-	}
+//	@RequestMapping(method = RequestMethod.POST, value="/login")
+//	public AuthenticationToken login(@RequestBody User user,
+//									 HttpSession session) {
+//		String username = user.getUser_mail();
+//		String password = user.getUser_pass();
+//		
+//		UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(username, password);
+//		Authentication authentication = authenticationManager.authenticate(token);
+//		SecurityContextHolder.getContext().setAuthentication(authentication);
+//		session.setAttribute(HttpSessionSecurityContextRepository.SPRING_SECURITY_CONTEXT_KEY,
+//					SecurityContextHolder.getContext());
+//		
+//		user = userService.get(username);
+//		return new AuthenticationToken(user.getUser_mail(), user.getAuthorities(), session.getId());
+//		
+//	}
 }

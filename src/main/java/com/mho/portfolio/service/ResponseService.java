@@ -10,5 +10,5 @@ public interface ResponseService {
 	public <T> SingleResult<T> getSingleResult(T data);
 	public <T> ListResult<T> getListResult(List<T> list);
 	public CommonResult getSuccessResult();
-	public CommonResult getFailResult();
+	public CommonResult getFailResult(int code, String msg);
 }
