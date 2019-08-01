@@ -1,4 +1,4 @@
-package com.mho.portfolio.authority;
+package com.mho.portfolio.domain;
 
 
 import javax.persistence.Column;

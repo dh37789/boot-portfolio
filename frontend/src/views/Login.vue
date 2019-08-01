@@ -76,7 +76,7 @@ export default {
       frm.append('user_mail', this.user_mail)
       frm.append('user_pass', this.user_pass)
 
-      axios.post('http://localhost:5000/user/auth', frm)
+      axios.post('http://localhost:5000/restUser/login', frm)
       .then( response => {
         console.log('response', JSON.stringify(response, null, 2))
       }).catch(error => {

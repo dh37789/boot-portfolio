@@ -1,26 +1,37 @@
 package com.mho.portfolio.controller;
 
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.mho.portfolio.advice.exception.CUserNotFoundException;import com.mho.portfolio.config.security.JwtTokenProvider;
+import com.mho.portfolio.domain.User;
 import com.mho.portfolio.model.response.ListResult;
 import com.mho.portfolio.model.response.SingleResult;
 import com.mho.portfolio.service.ResponseService;
-import com.mho.portfolio.user.User;
-import com.mho.portfolio.user.UserService;
+import com.mho.portfolio.service.UserService;
 
 @RestController
 @RequestMapping(value="/restUser")
 public class UserController {
 
-	private UserService userService;
-	private ResponseService responseService;
+	private final UserService userService;
+	private final ResponseService responseService;
+	private final PasswordEncoder passwordEncoder;
+	private final JwtTokenProvider jwtTokenProvider;
 	
-	public UserController(UserService userService, ResponseService responseService) {
+	public UserController(UserService userService, ResponseService responseService,
+			PasswordEncoder passwordEncoder, JwtTokenProvider jwtTokenProvider) {
 		this.userService = userService;
 		this.responseService = responseService;
+		this.passwordEncoder = passwordEncoder;
+		this.jwtTokenProvider = jwtTokenProvider;
 	}
 	
 	@GetMapping(value="/users")
@@ -28,8 +39,20 @@ public class UserController {
 		return responseService.getListResult(userService.getAll());
 	}
 	
-	@GetMapping(value="/user/{id}")
-	public SingleResult<User> findUserById(@PathVariable(value="id") String id){
-		return responseService.getSingleResult(userService.get(id));
+	@GetMapping(value="/user")
+	public SingleResult<User> findUserById(@RequestParam String lang){
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		String id = authentication.getName();
+		return responseService.getSingleResult(userService.findById(id).orElseThrow(CUserNotFoundException::new));
 	}
+	
+	@PostMapping(value = "/login")
+	public SingleResult<String> login(@RequestParam String user_mail, @RequestParam String user_pass){
+		User user = userService.findById(user_mail).orElseThrow(CUserNotFoundException::new);
+		String dd = passwordEncoder.encode(user_pass);
+ 		if (!passwordEncoder.matches(user_pass, user.getPassword()))
+			throw new CUserNotFoundException();
+		return responseService.getSingleResult(jwtTokenProvider.createToken(user.getUsername(), user.getRoles()));
+	}
+	
 }

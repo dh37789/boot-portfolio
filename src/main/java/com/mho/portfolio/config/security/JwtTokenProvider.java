@@ -8,13 +8,14 @@ import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Component;
 
-import com.mho.portfolio.authority.Authority;
+import com.mho.portfolio.domain.Authority;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
@@ -22,17 +23,20 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import lombok.RequiredArgsConstructor;
 
-@RequiredArgsConstructor
 @Component
 public class JwtTokenProvider {
 
-	@Value("jwt.secret")
+	@Value("${jwt.secret}")
 	private String secretKey;
 	
 	private long tokenValidMilisecond = 1000L * 60 * 30;
 	
 	private final UserDetailsService userDetailsService;
 	
+	public JwtTokenProvider(UserDetailsService userDetailsService) {
+		this.userDetailsService = userDetailsService;
+	}
+
 	@PostConstruct
 	protected void init() {
 		secretKey = Base64.getEncoder().encodeToString(secretKey.getBytes());

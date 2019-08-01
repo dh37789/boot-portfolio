@@ -1,4 +1,4 @@
-package com.mho.portfolio.authority;
+package com.mho.portfolio.service;
 
 import java.util.Collection;
 

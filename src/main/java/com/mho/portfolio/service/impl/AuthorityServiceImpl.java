@@ -1,4 +1,4 @@
-package com.mho.portfolio.authority;
+package com.mho.portfolio.service.impl;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -9,11 +9,17 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.stereotype.Service;
 
+import com.mho.portfolio.repository.AuthorityRepository;
+import com.mho.portfolio.service.AuthorityService;
+
 @Service
 public class AuthorityServiceImpl implements AuthorityService{
 
-	@Autowired
 	private AuthorityRepository authorityRepository;
+	
+	public AuthorityServiceImpl(AuthorityRepository authorityRepository) {
+		this.authorityRepository = authorityRepository;
+	}
 	
 	@Override
 	public Collection<GrantedAuthority> getAuthorities(String username) {
