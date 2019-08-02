@@ -2,6 +2,7 @@ package com.mho.portfolio.config.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
@@ -34,8 +35,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 			.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
 			.and()
 				.authorizeRequests()
-					.antMatchers("/*/login").permitAll()
-					.antMatchers("/admin/**").hasRole("ADMIN")
+				.antMatchers("/*/login").permitAll()
+				.antMatchers(HttpMethod.GET, "/exception/**").permitAll()
+				.antMatchers("/*/user").hasAuthority("SSSADMIN")
+				.antMatchers("/admin/**").hasAuthority("ADMIN")
+			.and()
+				.exceptionHandling().accessDeniedHandler(new CustomAccessDeniedHandler())
+			.and()
+				.exceptionHandling().authenticationEntryPoint(new CustomAuthenticationEntryPoint())
 			.and()
 				.addFilterBefore(new JwtAuthenticationFilter(jwtTokenProvider), UsernamePasswordAuthenticationFilter.class);
 	}
