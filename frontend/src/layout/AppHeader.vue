@@ -5,6 +5,18 @@
               <img src="img/brand/title.png">
             </router-link>
 
+            <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
+                <base-dropdown class="nav-item" menu-classes="dropdown-menu-xl">
+                  <a slot="title" href="#profile" class="nav-link" data-toggle="dropdown" role="button">
+                    <span class="nav-link-inner--text">PROFILE</span>
+                  </a>
+                </base-dropdown>
+                <base-dropdown tag="li" class="nav-item">
+                    <a slot="title" href="#" class="nav-link" data-toggle="dropdown" role="button">
+                        <span class="nav-link-inner--text">SKILL STACK</span>
+                    </a>
+                </base-dropdown>
+            </ul>
             <ul class="navbar-nav align-items-lg-center ml-lg-auto">
                 <li class="nav-item">
                     <a class="nav-link nav-link-icon" href="https://demos.creative-tim.com/vue-argon-design-system/documentation/" target="_blank"

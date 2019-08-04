@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="profile">
     <section class="section">
       <div class="container">
         <div class="row justify-content-center">
@@ -89,8 +89,8 @@
                         BlogUrl
                       </td>
                       <td class="cont">: 
-                        <a :href="blogUrl">
-                        https://www.notion.so/dh37789</a>
+                        <a :href="blogUrl">{{ urlSplit(blogUrl) }}
+                        </a>
                       </td>
                     </tr>
                   </table>
@@ -140,8 +140,9 @@ export default {
                console.log(err);
            });
         },
-        urlSplit: function(){
-            
+        urlSplit: function(str){
+            var blogUrl = str.split('/');
+            return blogUrl[0] + '//' + blogUrl[2] + '/' + blogUrl[3];
         }
     },
     created: function(){
