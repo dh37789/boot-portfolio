@@ -1,12 +1,13 @@
 import Vue from "vue";
 import Router from "vue-router";
-import AppHeader from "./layout/AppHeader";
-import AppFooter from "./layout/AppFooter";
-import Components from "./views/Components.vue";
-import Home from "./views/Home.vue";
-import Landing from "./views/Landing.vue";
-import Login from "./views/Login.vue";
-import Login2 from "./views/Login2.vue";
+import AppHeader from "../layout/AppHeader";
+import AppFooter from "../layout/AppFooter";
+import Components from "../views/Components.vue";
+import Home from "../views/Home.vue";
+import Landing from "../views/Landing.vue";
+import Login from "../views/Login.vue";
+import Login2 from "../views/Login2.vue";
+import Profile from "../views/Profile.vue";
 
 Vue.use(Router);
 
@@ -56,6 +57,15 @@ export default new Router({
       components: {
         header: AppHeader,
         default: Login2,
+        footer: AppFooter
+      }
+    },
+    {
+      path: "/profile",
+      name: "profile",
+      components: {
+        header: AppHeader,
+        default: Profile,
         footer: AppFooter
       }
     }

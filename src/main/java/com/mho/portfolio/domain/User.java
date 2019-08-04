@@ -1,15 +1,10 @@
 package com.mho.portfolio.domain;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
-import java.util.stream.Collectors;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
-import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
@@ -33,20 +28,32 @@ public class User implements UserDetails{
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Column(length = 20)
+	@Column(name = "USER_MAIL", length = 20)
 	private String user_mail;
 	
-	@Column(length = 500)
+	@Column(name = "USER_PASS", length = 500)
 	private String user_pass;
 	
-	@Column(length = 10)
+	@Column(name = "USER_NM", length = 10)
 	private String user_nm;
 
-	@Column(length = 12)
+	@Column(name = "USER_TEL", length = 20)
 	private String user_tel;
 	
-	@Column(length = 50)
+	@Column(name = "USER_ADD", length = 50)
 	private String user_add;
+	
+	@Column(name = "USER_DTL", length = 2000)
+	private String user_dtl;
+	
+	@Column(name="USER_GITURL", length = 200)
+	private String user_gitUrl;
+	
+	@Column(name="USER_BLOGURL", length = 200)
+	private String user_blogUrl;
+
+	@Column(name = "USER_BIRTH", length = 200)
+	private String user_birth;
 
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name="userauth",
@@ -64,12 +71,17 @@ public class User implements UserDetails{
 	}
 	
 	@Builder
-	public User(String user_mail, String user_pass, String user_nm, String user_tel, String user_add) {
+	public User(String user_mail, String user_pass, String user_nm, String user_tel, String user_add,
+			String user_dtl, String user_gitUrl, String user_blogUrl, String user_birth) {
 		this.user_mail = user_mail;
 		this.user_pass = user_pass;
 		this.user_nm = user_nm;
 		this.user_tel = user_tel;
 		this.user_add = user_add;
+		this.user_dtl = user_dtl;
+		this.user_gitUrl = user_gitUrl;
+		this.user_blogUrl = user_blogUrl;
+		this.user_birth = user_birth;
 	}
 
 	@Override

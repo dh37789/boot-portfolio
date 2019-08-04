@@ -1,75 +1,176 @@
 <template>
-    <div class="profile-page">
-        <section class="section-profile-cover section-shaped my-0">
-            <div class="shape shape-style-1 shape-primary shape-skew alpha-4">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
+  <div>
+    <section class="section">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-12 text-center">
+            <img src="img/brand/profileA8.png" />
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section raws">
+      <div class="container">
+        <div class="profile-page pt-10">
+          <card shadow class="card-profile" no-body>
+            <div class="px-4 justify-content-center">
+              <div class="col-lg-12 order-lg-2 mb-10">
+                <div class="card-profile-image">
+                  <img v-lazy="'img/brand/profile.jpg'" class="rounded-circle" />
+                </div>
+              </div>
+              <div class="text-center box">
+                <h2>
+                  {{user.user_nm}}
+                  <span class="font-weight-light">, 27</span>
+                </h2>
+                <div class="h6 font-weight-300">
+                  <i class="ni location_pin mr-2"></i>Oh Myeong Hak
+                </div>
+                <div class="h6 mb-4">
+                  <i class="ni business_briefcase-24 mr-2"></i>Backend Developer
+                </div>
+              </div>
+              <div class="py-4 border-top text-center px-5">
+                <div class="col-lg-11">
+                  <table class="info">
+                    <tr>
+                      <td class="icons">
+                        <i class="fa fa-heartbeat"></i>
+                      </td>
+                      <td class="title">
+                        Birth
+                      </td>
+                      <td class="cont">: {{ user.user_birth }}</td>
+                    </tr>
+                    <tr>
+                      <td class="icons">
+                        <i class="fa fa-phone fa-lg"></i>
+                      </td>
+                      <td class="title">
+                        Phone
+                      </td>
+                      <td class="cont">: {{ user.user_tel }}</td>
+                    </tr>
+                    <tr>
+                      <td class="icons">
+                        <i class="fa fa-envelope-o fa-lg"></i>
+                      </td>
+                      <td class="title">
+                        E-mail
+                      </td>
+                      <td class="cont">: {{ user.user_mail }}</td>
+                    </tr>
+                    <tr>
+                      <td class="icons">
+                        <i class="fa fa-map-marker fa-lg"></i>
+                      </td>
+                      <td class="title">
+                        Addr
+                      </td>
+                      <td class="cont">: {{ user.user_add }}</td>
+                    </tr>
+                    <tr>
+                      <td class="icons">
+                        <i class="fa fa-github-alt fa-lg"></i>
+                      </td>
+                      <td class="title">
+                        GitUrl
+                      </td>
+                      <td class="cont">: 
+                        <a :href="gitUrl">{{ user.user_gitUrl }}</a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="icons">
+                        <i class="fa fa-pencil-square-o fa-lg"></i>
+                      </td>
+                      <td class="title">
+                        BlogUrl
+                      </td>
+                      <td class="cont">: 
+                        <a :href="blogUrl">
+                        https://www.notion.so/dh37789</a>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+              <div class="py-4 border-top text-center">
+                <div class="row justify-content-center">
+                  <div class="col-lg-9">
+                    <p>{{ user.user_dtl }}</p>
+                    <p><a class="hash" href="#">#성공적</a><a class="hash" href="#">#프로필</a><a class="hash" href="#">#만들었다</a><a class="hash" href="#">#힘들다</a></p>
+                  </div>
+                </div>
+              </div>
             </div>
-        </section>
-        <section class="section section-skew">
-            <div class="container">
-                <card shadow class="card-profile mt--300" no-body>
-                    <div class="px-4">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-3 order-lg-2">
-                                <div class="card-profile-image">
-                                    <a href="#">
-                                        <img v-lazy="'img/theme/team-4-800x800.jpg'" class="rounded-circle">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 order-lg-3 text-lg-right align-self-lg-center">
-                                <div class="card-profile-actions py-4 mt-lg-0">
-                                    <base-button type="info" size="sm" class="mr-4">Connect</base-button>
-                                    <base-button type="default" size="sm" class="float-right">Message</base-button>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 order-lg-1">
-                                <div class="card-profile-stats d-flex justify-content-center">
-                                    <div>
-                                        <span class="heading">22</span>
-                                        <span class="description">Friends</span>
-                                    </div>
-                                    <div>
-                                        <span class="heading">10</span>
-                                        <span class="description">Photos</span>
-                                    </div>
-                                    <div>
-                                        <span class="heading">89</span>
-                                        <span class="description">Comments</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="text-center mt-5">
-                            <h3>Jessica Jones
-                                <span class="font-weight-light">, 27</span>
-                            </h3>
-                            <div class="h6 font-weight-300"><i class="ni location_pin mr-2"></i>Bucharest, Romania</div>
-                            <div class="h6 mt-4"><i class="ni business_briefcase-24 mr-2"></i>Solution Manager - Creative Tim Officer</div>
-                            <div><i class="ni education_hat mr-2"></i>University of Computer Science</div>
-                        </div>
-                        <div class="mt-5 py-5 border-top text-center">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-9">
-                                    <p>An artist of considerable range, Ryan — the name taken by Melbourne-raised, Brooklyn-based Nick Murphy — writes, performs and records all of his own music, giving it a warm, intimate feel with a solid groove structure. An artist of considerable range.</p>
-                                    <a href="#">Show more</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </card>
-            </div>
-        </section>
-    </div>
+          </card>
+        </div>
+      </div>
+    </section>
+  </div>
 </template>
 <script>
-export default {};
+import axios from 'axios';
+
+export default {
+    data() {
+        return{
+            blogUrl: '',
+            gitUrl: '',
+            user: [],
+            user_mail: 'dhaudgkr@gmail.com'
+        }
+    },
+    methods: {
+        onInit: function(){
+           axios.get('http://localhost:5000/restUser/user', {
+               params:{
+                   user_mail: this.user_mail
+               }
+           })
+           .then((res) => {
+               console.log(res);
+               this.user = res.data.data;
+               this.gitUrl = res.data.data.user_gitUrl;
+               this.blogUrl = res.data.data.user_blogUrl;
+           })
+           .catch((err) => {
+               console.log(err);
+           });
+        },
+        urlSplit: function(){
+            
+        }
+    },
+    created: function(){
+        this.onInit();
+    }
+};
 </script>
 <style>
+.box {
+  padding-top: 150px;
+}
+.info {
+  width: 100%;
+  height: 100%;
+}
+.title {
+  text-align: justify;
+}
+.cont {
+  text-align: left;
+}
+.icons{
+  text-align: center;
+  width: 0.8em;
+}
+.section{
+  font-family: nanumBarunGothic;
+}
+.hash{
+    margin-right: 10px;
+}
 </style>

@@ -1,13 +1,9 @@
 package com.mho.portfolio.controller;
 
-import java.util.Collection;
-
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -43,10 +39,8 @@ public class UserController {
 	}
 	
 	@GetMapping(value="/user")
-	public SingleResult<User> findUserById(@RequestParam String lang){
-		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-		String id = authentication.getName();
-		return responseService.getSingleResult(userService.findById(id).orElseThrow(CUserNotFoundException::new));
+	public SingleResult<User> findUserById(@RequestParam String user_mail){
+		return responseService.getSingleResult(userService.findById(user_mail).orElseThrow(CUserNotFoundException::new));
 	}
 	
 	@PostMapping(value = "/login")

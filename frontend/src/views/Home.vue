@@ -1,16 +1,19 @@
 <template>
   <div>
     <hero></hero>
+    <Profile></Profile>
   </div>
 </template>
 
 <script>
-import Hero from "./components/Hero"
+import Hero from "./components/Hero";
+import Profile from "./Profile.vue";
 
 export default {
-  name: "main",
+  name: "portfolioMain",
   components: {
-    Hero
+    Hero,
+    Profile
   }
 }
 </script>
