@@ -22,4 +22,10 @@ export default {
 #app{
   font-family: nanumBarunGothic;
 }
+.logoImg{
+    max-width: 100%;
+    width: auto;
+    max-height: 100%;
+    height: auto;
+}
 </style>
