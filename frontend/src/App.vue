@@ -18,3 +18,8 @@ export default {
   }
 };
 </script>
+<style>
+#app{
+  font-family: nanumBarunGothic;
+}
+</style>

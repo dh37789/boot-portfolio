@@ -4,7 +4,7 @@
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-lg-12 text-center">
-            <img src="img/brand/profileA8.png" />
+            <img src="img/brand/profileA8.png" class="proImg" />
           </div>
         </div>
       </div>
@@ -13,7 +13,7 @@
       <div class="container">
         <div class="profile-page pt-10">
           <card shadow class="card-profile" no-body>
-            <div class="px-4 justify-content-center">
+            <div class="px-md-4 justify-content-center">
               <div class="col-lg-12 order-lg-2 mb-10">
                 <div class="card-profile-image">
                   <img v-lazy="'img/brand/profile.jpg'" class="rounded-circle" />
@@ -31,7 +31,7 @@
                   <i class="ni business_briefcase-24 mr-2"></i>Backend Developer
                 </div>
               </div>
-              <div class="py-4 border-top text-center px-5">
+              <div class="py-2 border-top text-center px-md-5">
                 <div class="col-lg-11">
                   <table class="info">
                     <tr>
@@ -57,7 +57,7 @@
                         <i class="fa fa-envelope-o fa-lg"></i>
                       </td>
                       <td class="title">
-                        E-mail
+                        Mail
                       </td>
                       <td class="cont">: {{ user.user_mail }}</td>
                     </tr>
@@ -75,7 +75,7 @@
                         <i class="fa fa-github-alt fa-lg"></i>
                       </td>
                       <td class="title">
-                        GitUrl
+                        Git
                       </td>
                       <td class="cont">: 
                         <a :href="gitUrl">{{ user.user_gitUrl }}</a>
@@ -86,10 +86,9 @@
                         <i class="fa fa-pencil-square-o fa-lg"></i>
                       </td>
                       <td class="title">
-                        BlogUrl
+                        Blog
                       </td>
-                      <td class="cont">: 
-                        <a :href="blogUrl">{{ urlSplit(blogUrl) }}
+                      <td class="cont">: <a :href="blogUrl">https://www.notion.adw/dh37789
                         </a>
                       </td>
                     </tr>
@@ -168,10 +167,13 @@ export default {
   text-align: center;
   width: 0.8em;
 }
-.section{
-  font-family: nanumBarunGothic;
-}
 .hash{
     margin-right: 10px;
+}
+.proImg{
+    max-width: 100%;
+    width: auto;
+    max-height: 100%;
+    height: auto;
 }
 </style>

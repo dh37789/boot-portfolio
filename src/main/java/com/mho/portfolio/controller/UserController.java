@@ -1,7 +1,5 @@
 package com.mho.portfolio.controller;
 
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -46,7 +44,6 @@ public class UserController {
 	@PostMapping(value = "/login")
 	public SingleResult<String> login(@RequestParam String user_mail, @RequestParam String user_pass){
 		User user = userService.findById(user_mail).orElseThrow(CUserNotFoundException::new);
-		String dd = passwordEncoder.encode(user_pass);
  		if (!passwordEncoder.matches(user_pass, user.getPassword()))
 			throw new CUserNotFoundException();
 		return responseService.getSingleResult(jwtTokenProvider.createToken(user.getUsername(), user.getRoles()));
