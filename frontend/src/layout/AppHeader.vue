@@ -7,7 +7,7 @@
 
             <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
                 <base-dropdown class="nav-item" menu-classes="dropdown-menu-xl">
-                  <a slot="title" href="#profile" class="nav-link" data-toggle="dropdown" role="button">
+                  <a slot="title" href="#" v-scroll-to="{ el: '#profile'}" class="nav-link" data-toggle="dropdown" role="button">
                     <span class="nav-link-inner--text">PROFILE</span>
                   </a>
                 </base-dropdown>
