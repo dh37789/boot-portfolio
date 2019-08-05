@@ -54,11 +54,13 @@
 
 import BaseNav from "@/components/BaseNav";
 import CloseButton from "@/components/CloseButton";
+import BaseDropdown from "@/components/BaseDropdown";
 
 export default {
   components: {
     BaseNav,
-    CloseButton
+    CloseButton,
+    BaseDropdown
   }
 };
 </script>

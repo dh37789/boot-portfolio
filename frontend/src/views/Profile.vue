@@ -88,7 +88,7 @@
                       <td class="title">
                         Blog
                       </td>
-                      <td class="cont">: <a :href="blogUrl">https://www.notion.adw/dh37789
+                      <td class="cont">: <a :href="blogUrl">{{ urlSplit(blogUrl) }}
                         </a>
                       </td>
                     </tr>
