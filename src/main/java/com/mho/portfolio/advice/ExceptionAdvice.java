@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import com.mho.portfolio.advice.exception.AccessDeniedException;
 import com.mho.portfolio.advice.exception.AuthenticationEntryPointException;
 import com.mho.portfolio.advice.exception.CUserNotFoundException;
+import com.mho.portfolio.advice.exception.LoginFailException;
 import com.mho.portfolio.model.response.CommonResult;
 import com.mho.portfolio.service.ResponseService;
 
@@ -27,7 +28,7 @@ public class ExceptionAdvice {
 	
 	@ExceptionHandler(Exception.class)
 	@ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-	protected CommonResult defaultException(HttpServletRequest request, Exception e) {
+	protected CommonResult defaultException(HttpServletRequest req, Exception e) {
 		return responseService.getFailResult(Integer.valueOf(getMessage("unKnown.code")), getMessage("unKnown.msg"));
 	}
 	
@@ -35,6 +36,11 @@ public class ExceptionAdvice {
 	@ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
 	protected CommonResult userNotFoundException(HttpServletRequest req, CUserNotFoundException e) {
 		return responseService.getFailResult(Integer.valueOf(getMessage("userNotFound.code")), getMessage("userNotFound.msg"));
+	}
+
+	@ExceptionHandler(LoginFailException.class)
+	public CommonResult loginFailException(HttpServletRequest req, LoginFailException e) {
+		return responseService.getFailResult(Integer.valueOf(getMessage("loginFail.code")), getMessage("loginFail.msg"));
 	}
 	
 	@ExceptionHandler(AuthenticationEntryPointException.class)

@@ -28,6 +28,9 @@ public class User implements UserDetails{
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	@Column(name = "USER_ID", length = 20)
+	private String user_id;
+
 	@Column(name = "USER_MAIL", length = 20)
 	private String user_mail;
 	
@@ -57,7 +60,7 @@ public class User implements UserDetails{
 
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name="userauth",
-			   joinColumns = @JoinColumn(name = "user_mail"),
+			   joinColumns = @JoinColumn(name = "user_id"),
 			   inverseJoinColumns = @JoinColumn(name = "auth_id"))
 	private Set<Authority> roles;
 	
@@ -71,8 +74,9 @@ public class User implements UserDetails{
 	}
 	
 	@Builder
-	public User(String user_mail, String user_pass, String user_nm, String user_tel, String user_add,
+	public User(String user_id, String user_mail, String user_pass, String user_nm, String user_tel, String user_add,
 			String user_dtl, String user_gitUrl, String user_blogUrl, String user_birth) {
+		this.user_id = user_id;
 		this.user_mail = user_mail;
 		this.user_pass = user_pass;
 		this.user_nm = user_nm;
@@ -86,7 +90,7 @@ public class User implements UserDetails{
 
 	@Override
 	public String getUsername() {
-		return this.user_mail;
+		return this.user_id;
 	}
 	
 	@Override

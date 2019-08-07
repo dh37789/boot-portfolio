@@ -11,5 +11,5 @@ import com.mho.portfolio.domain.User;
 public interface UserService extends UserDetailsService{
 	public List<User> getAll();
 	public PasswordEncoder passwordEncoder();
-	public Optional<User> findById(String user_mail);
+	public Optional<User> findById(String user_id);
 }

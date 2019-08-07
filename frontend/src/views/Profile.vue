@@ -119,16 +119,12 @@ export default {
             blogUrl: '',
             gitUrl: '',
             user: [],
-            user_mail: 'dhaudgkr@gmail.com'
+            user_id: 'dhaudgkr@gmail.com'
         }
     },
     methods: {
-        onInit: function(){
-           axios.get('http://localhost:5000/restUser/user', {
-               params:{
-                   user_mail: this.user_mail
-               }
-           })
+        onInit: function() {
+           axios.get('http://localhost:5000/users/' + this.user_id)
            .then((res) => {
                console.log(res);
                this.user = res.data.data;

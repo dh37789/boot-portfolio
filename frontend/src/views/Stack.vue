@@ -56,7 +56,26 @@
   </div>
 </template>
 <script>
-export default {};
+import axios from 'axios';
+
+export default {
+    data() {
+        return{
+            language: [],
+            framework: [],
+            database: [],
+            version: []
+        }
+    },
+    methods: {
+        onInit: function() {
+            axios.get('http://localhost:5000/skills/')
+        }
+    },
+    created: function(){
+        this.onInit();
+    }
+};
 </script>
 <style>
 .lang{

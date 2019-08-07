@@ -1,3 +1,4 @@
+
 DROP TABLE PROJECTIMG;
 DROP TABLE PROJECTSKILL;
 DROP TABLE PROJECT;
@@ -5,32 +6,39 @@ DROP TABLE USERSKILL;
 DROP TABLE SKILL;
 DROP TABLE SKILLCLS;
 DROP TABLE USERAUTH;
-DROP TABLE AUTHORITY;
 DROP TABLE USER;
+DROP TABLE AUTHORITY;
 
 CREATE TABLE USER
 (
-   USER_MAIL    VARCHAR(20),
-   USER_PASS    VARCHAR(500),
-   USER_NM      VARCHAR(10),
-   USER_TEL     VARCHAR(12),
-   USER_ADD     VARCHAR(50),
-   PRIMARY KEY(USER_MAIL)
+   USER_ID         VARCHAR(20),
+   USER_MAIL       VARCHAR(20),
+   USER_PASS       VARCHAR(500),
+   USER_NM         VARCHAR(10),
+   USER_ENGNM      VARCHAR(30),
+   USER_BIRTH      VARCHAR(10),
+   USER_TEL        VARCHAR(20),
+   USER_ADD        VARCHAR(50),
+   USER_DTL        VARCHAR(2000),
+   USER_GITURL     VARCHAR(200),
+   USER_BLOGURL    VARCHAR(200),
+   PRIMARY KEY(USER_ID)
 );
 
 CREATE TABLE AUTHORITY
 (
-   AUTH_ID      VARCHAR(20),
+   AUTH_ID      VARCHAR(10),
    AUTH_NAME    VARCHAR(20),
    PRIMARY KEY(AUTH_ID)
 );
 
 CREATE TABLE USERAUTH
 (
-   USER_MAIL    VARCHAR(20),
-   AUTH_ID      VARCHAR(20),
-   PRIMARY KEY(USER_MAIL, AUTH_ID),
-   FOREIGN KEY(USER_MAIL) REFERENCES USER (USER_MAIL)
+   USER_ID    VARCHAR(20),
+   AUTH_ID      VARCHAR(10),
+   PRIMARY KEY(USER_ID, AUTH_ID),
+   FOREIGN KEY(USER_ID) REFERENCES USER (USER_ID),
+   FOREIGN KEY(AUTH_ID) REFERENCES AUTHORITY (AUTH_ID)
 );
 
 CREATE TABLE SKILLCLS
@@ -40,10 +48,11 @@ CREATE TABLE SKILLCLS
    PRIMARY KEY(SKILL_CLS_NO)
 );
 
+
 CREATE TABLE SKILL
 (
    SKILL_NO        VARCHAR(5),
-   SKILL_NM        VARCHAR(15),
+   SKILL_NM        VARCHAR(30),
    SKILL_CLS_NO    CHAR(1),
    SKILL_IMG       VARCHAR(20),
    PRIMARY KEY(SKILL_NO),
@@ -52,10 +61,11 @@ CREATE TABLE SKILL
 
 CREATE TABLE USERSKILL
 (
-   USER_MAIL    VARCHAR(20),
+   USER_ID    VARCHAR(20),
    SKILL_NO     VARCHAR(5),
-   PRIMARY KEY(USER_MAIL, SKILL_NO),
-   FOREIGN KEY(USER_MAIL) REFERENCES USER (USER_MAIL),
+   SKILL_LEV    CHAR(1),
+   PRIMARY KEY(USER_ID, SKILL_NO),
+   FOREIGN KEY(USER_ID) REFERENCES USER (USER_ID),
    FOREIGN KEY(SKILL_NO) REFERENCES SKILL (SKILL_NO)
 );
 
@@ -90,3 +100,52 @@ CREATE TABLE PROJECTIMG
    PRIMARY KEY(PROJ_IMG_NO),
    FOREIGN KEY(PROJ_NO) REFERENCES PROJECT (PROJ_NO)
 );
+
+INSERT INTO user(USER_ID,
+				 USER_MAIL,
+                 USER_PASS,
+                 USER_NM,
+                 USER_ENGNM,
+                 USER_BIRTH,
+                 USER_TEL,
+                 USER_ADD,
+                 USER_DTL,
+                 USER_GITURL,
+                 USER_BLOGURL)
+        VALUES ('dhaudgkr',
+        		'dhaudgkr@gmail.com',
+                '{bcrypt}$2a$10$C4VlMVhEsWqCqCh7pgfdFuadHshB/cv6pdv4AejhvaDphYr70w4JK',
+                '오명학',
+                'Oh MyeongHak',
+                '1993.10.06',
+                '010-4807-9310',
+                '경기도 평택시 WW로 XXX, YYY동 ZZZ호',
+                '안녕하세요. 코딩국가대표 오명학입니다. 잘부탁드립니다.',
+                'https://github.com/dh37789',
+                'https://www.notion.so/dh37789/Code-Note-19ded0b9506948f5a733bac65142d5fd');
+                
+INSERT INTO authority VALUES('1', 'ADMIN');                
+
+INSERT INTO userauth VALUES('dhaudgkr', '1');
+
+INSERT INTO skillcls VALUES('1', 'Language');
+INSERT INTO skillcls VALUES('2', 'Framework');
+INSERT INTO skillcls VALUES('3', 'Database');
+INSERT INTO skillcls VALUES('4', 'Version Control');
+
+INSERT INTO skill VALUES('1', 'Java', '1', 'java.png');
+INSERT INTO skill VALUES('2', 'HTML5', '1', 'html5.png');
+INSERT INTO skill VALUES('3', 'CSS3', '1', 'css3.png');
+INSERT INTO skill VALUES('4', 'Javascript', '1', 'javascript.png');
+INSERT INTO skill VALUES('5', 'Spring Framework', '2', 'springFramework.png');
+INSERT INTO skill VALUES('6', 'Spring Boot', '2', 'boot.png');
+INSERT INTO skill VALUES('7', 'Vue.js', '2', 'vue.png');
+INSERT INTO skill VALUES('8', 'Node.Js', '2', 'nodejs.png');
+INSERT INTO skill VALUES('9', 'Oracle', '3', 'oracle.png');
+INSERT INTO skill VALUES('10', 'MariaDB', '3', 'maria.png');
+INSERT INTO skill VALUES('11', 'GitHub', '4', 'github.png');
+INSERT INTO skill VALUES('12', 'SVN', '4', 'svn.png');
+
+INSERT INTO userskill VALUES('dhaudgkr', '1', '2');
+
+COMMIT;

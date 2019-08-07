@@ -11,4 +11,6 @@ entryPoionException:
 accessDeniedException:
   code: "403"
   msg: "보유한 권한으로 접근할 수 없는 리소스 입니다."
-  
+loginFail:
+  code: "-101"
+  msg: "이메일이나 비밀번호가 일치하지 않습니다."

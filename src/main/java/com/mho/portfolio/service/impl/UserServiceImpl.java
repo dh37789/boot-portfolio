@@ -24,7 +24,7 @@ public class UserServiceImpl implements UserService{
     	this.userRepository = userRepository;
 	}
     
-	
+    @Override
 	public List<User> getAll() {
 		return (List<User>)userRepository.findAll();
 	}
@@ -35,8 +35,8 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public Optional<User> findById(String user_mail) {
-		Optional<User> user = userRepository.findById(user_mail);
+	public Optional<User> findById(String user_id) {
+		Optional<User> user = userRepository.findById(user_id);
 		return user;
 	}
 
