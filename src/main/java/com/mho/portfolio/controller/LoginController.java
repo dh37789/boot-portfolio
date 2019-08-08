@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.mho.portfolio.advice.exception.CUserNotFoundException;
+import com.mho.portfolio.advice.exception.LoginFailException;
 import com.mho.portfolio.config.security.JwtTokenProvider;
 import com.mho.portfolio.domain.User;
 import com.mho.portfolio.model.response.SingleResult;
@@ -32,9 +32,9 @@ public class LoginController {
 	
 	@PostMapping("signIn")
 	public SingleResult<String> signIn(@RequestParam String user_id, @RequestParam String user_pass){
-		User user = userService.findById(user_id).orElseThrow(CUserNotFoundException::new);
+		User user = userService.findById(user_id).orElseThrow(LoginFailException::new);
  		if (!passwordEncoder.matches(user_pass, user.getPassword()))
-			throw new CUserNotFoundException();
+			throw new LoginFailException();
 		return responseService.getSingleResult(jwtTokenProvider.createToken(user.getUsername(), user.getRoles()));
 	}
 	

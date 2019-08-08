@@ -147,5 +147,16 @@ INSERT INTO skill VALUES('11', 'GitHub', '4', 'github.png');
 INSERT INTO skill VALUES('12', 'SVN', '4', 'svn.png');
 
 INSERT INTO userskill VALUES('dhaudgkr', '1', '2');
+INSERT INTO userskill VALUES('dhaudgkr', '2', '3');
+INSERT INTO userskill VALUES('dhaudgkr', '3', '3');
+INSERT INTO userskill VALUES('dhaudgkr', '4', '2');
+INSERT INTO userskill VALUES('dhaudgkr', '5', '2');
+INSERT INTO userskill VALUES('dhaudgkr', '6', '2');
+INSERT INTO userskill VALUES('dhaudgkr', '7', '2');
+INSERT INTO userskill VALUES('dhaudgkr', '8', '1');
+INSERT INTO userskill VALUES('dhaudgkr', '9', '2');
+INSERT INTO userskill VALUES('dhaudgkr', '10', '2');
+INSERT INTO userskill VALUES('dhaudgkr', '11', '2');
+INSERT INTO userskill VALUES('dhaudgkr', '12', '2');
 
 COMMIT;

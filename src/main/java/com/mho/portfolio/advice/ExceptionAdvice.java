@@ -39,6 +39,7 @@ public class ExceptionAdvice {
 	}
 
 	@ExceptionHandler(LoginFailException.class)
+	@ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
 	public CommonResult loginFailException(HttpServletRequest req, LoginFailException e) {
 		return responseService.getFailResult(Integer.valueOf(getMessage("loginFail.code")), getMessage("loginFail.msg"));
 	}

@@ -119,7 +119,7 @@ export default {
             blogUrl: '',
             gitUrl: '',
             user: [],
-            user_id: 'dhaudgkr@gmail.com'
+            user_id: 'dhaudgkr'
         }
     },
     methods: {
