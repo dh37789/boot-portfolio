@@ -24,7 +24,7 @@ import io.jsonwebtoken.SignatureAlgorithm;
 @Component
 public class JwtTokenProvider {
 
-	@Value("${jwt.secret}")
+	@Value("${spring.jwt.secret}")
 	private String secretKey;
 	
 	private long tokenValidMilisecond = 1000L * 60 * 30;

@@ -63,7 +63,17 @@
         <level value="INFO" />
         <appender-ref ref="BM_MSD_FILE" />
     </logger>
-     
+    
+    <!-- 스프링 -->
+    <logger name="org.springframework.web" level="DEBUG"/>
+    <!-- 하이버네이트 -->
+    <logger name="org.hibernate.SQL" level="DEBUG"/>
+    <!-- 하이버네이트 -->
+    <logger name="org.hibernate.type" level="TRACE"/>
+    <!-- 하이버네이트 -->
+    <logger name="org.hibernate.type.BasicTypeRegistry" level="DEBUG"/>
+    <logger name="com.mho.portfolio" level="DEBUG"/>
+    
     <!-- 모든 로그 출력 (파일/콘솔) -->
     <root level="INFO">
         <appender-ref ref="FILE"/>
