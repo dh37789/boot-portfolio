@@ -4,7 +4,7 @@
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-lg-12 text-center">
-            <img src="img/brand/profileA8.png" class="logoImg" />
+            <img src="img/brand/profile.png" class="logoImg" />
           </div>
         </div>
       </div>

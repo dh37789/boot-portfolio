@@ -17,9 +17,9 @@
                        data-original-title="Follow us on Facebook">
                         <i class="fa fa-facebook"></i>
                     </a>
-                    <a target="_blank" rel="noopener" href="https://dhaudgkr.tistory.com"
+                    <a target="_blank" rel="noopener" href="https://www.notion.so/dh37789/Code-Note-19ded0b9506948f5a733bac65142d5fd"
                        class="btn btn-neutral btn-icon-only btn-dribbble btn-md btn-round" data-toggle="tooltip"
-                       data-original-title="Visit my tistory">
+                       data-original-title="Welcome to my Coding Note">
                         <i class="fa fa-book"></i>
                     </a>
                     <a target="_blank" rel="noopener" href="https://github.com/dh37789"
