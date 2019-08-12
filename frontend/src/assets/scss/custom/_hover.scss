@@ -5,12 +5,15 @@
   display: inline-block;
   position: relative;
 }
+
 .wapper:hover img {
     opacity: 0.3;
 }
+
 .wapper:hover .links {
   opacity: 1;
 }
+
 .links {
   margin-top: 1px;
   opacity: 0;
@@ -18,10 +21,11 @@
   text-align: center;
   top: 50%;
   left: 50%;
-  transform: translateX(-50%) translateY(calc(-50% - .5px));
-  -ms-transform: translateX(-50%) translateY(calc(-50% - .5px));
+  transform: translateX(-50%) translateY(calc(-40% - .5px));
+  -ms-transform: translateX(-50%) translateY(calc(-40% - .5px));
   transition: .2s  ease;
 }
+
 .title{
   text-align: center;
   font-size: 1.2em;

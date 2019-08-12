@@ -33,51 +33,66 @@
               </div>
               <div class="py-2 border-top text-center px-md-5">
                 <div class="col-lg-11">
-                  <table class="info">
+                  <table class="info my-2">
                     <tr>
                       <td class="icons">
                         <i class="fa fa-heartbeat"></i>
                       </td>
-                      <td class="title">
+                      <td class="titles">
                         Birth
                       </td>
-                      <td class="cont">: {{ user.user_birth }}</td>
+                      <td>
+                        :
+                      </td>
+                      <td class="cont">{{ user.user_birth }}</td>
                     </tr>
                     <tr>
                       <td class="icons">
                         <i class="fa fa-phone fa-lg"></i>
                       </td>
-                      <td class="title">
+                      <td class="titles">
                         Phone
                       </td>
-                      <td class="cont">: {{ user.user_tel }}</td>
+                      <td>
+                        :
+                      </td>
+                      <td class="cont">{{ user.user_tel }}</td>
                     </tr>
                     <tr>
                       <td class="icons">
                         <i class="fa fa-envelope-o fa-lg"></i>
                       </td>
-                      <td class="title">
+                      <td class="titles">
                         Mail
                       </td>
-                      <td class="cont">: {{ user.user_mail }}</td>
+                      <td>
+                        :
+                      </td>
+                      <td class="cont">{{ user.user_mail }}</td>
                     </tr>
                     <tr>
                       <td class="icons">
                         <i class="fa fa-map-marker fa-lg"></i>
                       </td>
-                      <td class="title">
+                      <td class="titles">
                         Addr
                       </td>
-                      <td class="cont">: {{ user.user_add }}</td>
+                      <td>
+                        :
+                      </td>
+                      <td class="cont">{{ user.user_add }}</td>
                     </tr>
                     <tr>
                       <td class="icons">
                         <i class="fa fa-github-alt fa-lg"></i>
                       </td>
-                      <td class="title">
+                      <td class="titles">
                         Git
                       </td>
-                      <td class="cont">: 
+                      <td>
+                        :
+                      </td>
+                      <td class="cont">
                         <a :href="gitUrl">{{ user.user_gitUrl }}</a>
                       </td>
                     </tr>
@@ -85,10 +100,13 @@
                       <td class="icons">
                         <i class="fa fa-pencil-square-o fa-lg"></i>
                       </td>
-                      <td class="title">
+                      <td class="titles">
                         Blog
                       </td>
-                      <td class="cont">: <a :href="blogUrl">{{ urlSplit(blogUrl) }}
+                      <td>
+                        :
+                      </td>
+                      <td class="cont"><a :href="blogUrl">{{ urlSplit(blogUrl) }}
                         </a>
                       </td>
                     </tr>
@@ -153,11 +171,21 @@ export default {
   width: 100%;
   height: 100%;
 }
-.title {
+.info tr{
+  height: 35px;
+}
+.titles {
+  width: 14%;
+  padding-left: 10px;
   text-align: justify;
+  font-weight: bold;
 }
 .cont {
   text-align: left;
+  padding-left: 10px;
+}
+.cont a{
+  color: #525F7F;
 }
 .icons{
   text-align: center;
