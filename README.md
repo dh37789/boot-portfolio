@@ -8,6 +8,7 @@
 * Vue.js : 2.6.10
 * webpack : 4.35.3
 * Database : MariaDB
+* IDE : Eclipse Photon => IntelliJ 2019.2
 
 ### 목표
 1. Spring boot의 환경 설정 및 개발에 적용
