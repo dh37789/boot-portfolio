@@ -72,10 +72,13 @@ CREATE TABLE USERSKILL
 CREATE TABLE PROJECT
 (
    PROJ_NO       VARCHAR(5),
-   PROJ_CON      VARCHAR(200),
+   PROJ_TITLE	 VARCHAR(50),
+   PROJ_SUBCON   VARCHAR(200),
+   PROJ_CON      VARCHAR(2000),
    PROJ_START    DATE,
    PROJ_END      DATE,
    PROJ_DATE     DATE,
+   PROJ_GIT		 VARCHAR(50),
    PRIMARY KEY(PROJ_NO)
 );
 
@@ -93,6 +96,7 @@ CREATE TABLE PROJECTIMG
    PROJ_IMG_NO      VARCHAR(5),
    PROJ_NO          VARCHAR(5),
    PROJ_IMG_NM      VARCHAR(50),
+   PROJ_IMG_TITLE   VARCHAR(40),
    PROJ_IMG_SAV     VARCHAR(100),
    PROJ_IMG_TYPE    VARCHAR(10),
    PROJ_IMG_SIZE    MEDIUMINT,
@@ -158,5 +162,14 @@ INSERT INTO userskill VALUES('dhaudgkr', '9', '2');
 INSERT INTO userskill VALUES('dhaudgkr', '10', '2');
 INSERT INTO userskill VALUES('dhaudgkr', '11', '2');
 INSERT INTO userskill VALUES('dhaudgkr', '12', '2');
+
+INSERT INTO PROJECT VALUES('PR001',
+			 			   'JavaFx 메모장', 
+			 			   'JavaFx를 이용해 간단한 메모장을 만들어 보았습니다.', 
+			 			   'JavaFx를 이용해 간단한 메모장을 만들어 보았습니다. 자바1.8과 JavaFX GUI를 이용해 간단한 메모장을 만들어 보았습니다.', 
+			 			   '2019-04-03', 
+			 			   '2019-04-05', 
+			 			   NOW(), 
+			 			   'https://www.naver.com');
 
 COMMIT;
