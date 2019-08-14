@@ -11,7 +11,7 @@
 import Hero from "./components/Hero";
 import Profile from "./Profile.vue";
 import Stack from "./Stack.vue";
-import Project from "./Project.vue";
+import Project from "./Projects.vue";
 
 export default {
   name: "portfolioMain",
