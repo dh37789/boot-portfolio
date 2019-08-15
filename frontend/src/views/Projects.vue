@@ -11,8 +11,10 @@
     </section>
     <section class="section">
       <div class="container">
-        <div class="card-deck">
-          <project :project="project"></project>
+        <div class="card-deck" v-for="(group, idx) of projects" :key="idx">
+          <template v-for="(project, index) of group">
+            <project :project="project" :key="index" v-if="project !== null"></project>
+          </template>
         </div>
       </div>
     </section>
@@ -23,27 +25,34 @@ import axios from 'axios';
 import Project from "./components/Project.vue";
 
 export default {
+  data(){
+    return{
+      projects: []
+    }
+  },
   components: {
     Project
+  },
+  async created() {
+    axios.get("http://localhost:5000/projects")
+    .then((res) => {
+      console.log(res.data.list);
+      this.projects = res.data.list;
+      console.log(this.projects);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  },
+  methods: {
+    arrNum: function (arr) {
+      return arr.length;
+    }
   }
 };
 </script>
 <style>
-.projectImg{
-  width: 100%;
-  height: 100%;
-}
-.projTitle{
-  font-size: 1.2em;
-  font-weight: bold;
-}
-.card-img{
-  border-color: white;
-}
 .card-footer a{
   float: right;
-}
-.git{
-  float:right;
 }
 </style>

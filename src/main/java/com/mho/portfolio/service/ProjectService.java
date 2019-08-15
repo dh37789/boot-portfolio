@@ -6,6 +6,6 @@ import com.mho.portfolio.domain.Project;
 
 public interface ProjectService {
 
-	public List<Project> getProjList();
+	public List<List<Project>> getProjList();
 
 }

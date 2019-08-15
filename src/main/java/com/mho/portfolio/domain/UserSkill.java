@@ -47,7 +47,15 @@ public class UserSkill implements Serializable{
 		this.skill_no = skill_no;
 		this.skill_lev = skill_lev;
 		this.skill = skill;
-	}    
+	}
 
-	
+	@Override
+	public int hashCode() {
+		return super.hashCode();
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		return super.equals(obj);
+	}
 }

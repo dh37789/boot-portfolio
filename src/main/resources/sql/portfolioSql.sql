@@ -172,4 +172,12 @@ INSERT INTO PROJECT VALUES('PR001',
 			 			   NOW(), 
 			 			   'https://www.naver.com');
 
+INSERT INTO PROJECT VALUES('PR002',
+			 			   '시각장애인을 위한 화장도우미', 
+			 			   'JavaFx를 이용해 간단한 메모장을 만들어 보았습니다.', 
+			 			   'JavaFx를 이용해 간단한 메모장을 만들어 보았습니다. 자바1.8과 JavaFX GUI를 이용해 간단한 메모장을 만들어 보았습니다.', 
+			 			   '2019-04-03', 
+			 			   '2019-04-05', 
+			 			   NOW(), 
+			 			   'https://www.naver.com');
 COMMIT;
