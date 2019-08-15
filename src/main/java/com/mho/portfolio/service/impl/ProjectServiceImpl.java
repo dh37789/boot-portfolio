@@ -19,18 +19,7 @@ public class ProjectServiceImpl implements ProjectService {
   }
 
   @Override
-  public List<List<Project>> getProjList() {
-  	List tmp = projectRepository.findAll();
-		List project = new ArrayList<List<Project>>();
-		for (int i = 0; i < tmp.size(); i+=2){
-			List card = new ArrayList<Project>();
-			card.add(tmp.get(i));
-			if (tmp.size()-1 >= i+1) {
-				card.add(tmp.get(i+1));
-			}
-			project.add(card);
-		}
-    return project;
+  public List<Project> getProjList() {
+    return projectRepository.findAll();
   }
-
 }

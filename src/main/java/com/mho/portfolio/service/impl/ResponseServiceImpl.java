@@ -1,6 +1,5 @@
 package com.mho.portfolio.service.impl;
 
-import com.mho.portfolio.model.response.ListInListResult;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -40,14 +39,6 @@ public class ResponseServiceImpl implements ResponseService{
 	@Override
 	public <T> ListResult<T> getListResult(List<T> list) {
 		ListResult<T> result = new ListResult<>();
-		result.setList(list);
-		setSuccessResult(result);
-		return result;
-	}
-
-	@Override
-	public <E> ListInListResult<E> getListInListResult(List<E> list) {
-		ListInListResult<E> result = new ListInListResult<>();
 		result.setList(list);
 		setSuccessResult(result);
 		return result;

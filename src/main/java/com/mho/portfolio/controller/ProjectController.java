@@ -1,7 +1,5 @@
 package com.mho.portfolio.controller;
 
-import com.mho.portfolio.model.response.ListInListResult;
-import java.util.List;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,13 +22,7 @@ public class ProjectController {
 	}
 	
 	@GetMapping("")
-	public ListInListResult<List<Project>> getProjList(){
-		List<List<Project>> a = projectService.getProjList();
-		for (List<Project> b : a){
-			for (int i = 0; i < b.size(); i++){
-				System.out.println(b.get(i).getProj_title());
-			}
-		}
-		return responseService.getListInListResult(projectService.getProjList());
+	public ListResult<Project> getProjList(){
+		return responseService.getListResult(projectService.getProjList());
 	}
 }

@@ -34,14 +34,9 @@
 </script>
 
 <style>
-  .card {
-    width: 48%;
-  }
-
   .git {
     float: right;
   }
-
   .projectImg {
     width: 100%;
     height: 100%;
