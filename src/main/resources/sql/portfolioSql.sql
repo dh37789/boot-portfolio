@@ -180,4 +180,22 @@ INSERT INTO PROJECT VALUES('PR002',
 			 			   '2019-04-05', 
 			 			   NOW(), 
 			 			   'https://www.naver.com');
+
+INSERT INTO PROJECT VALUES('PR003',
+			 			   '프리랜서 프로젝트 계약사이트',
+			 			   '프리랜서 프로젝트 계약사이트를 만들어 보았습니다.',
+			 			   'Spring Framework를 이용해 프리랜서 프로젝트 계약사이트를 만들어 보았습니다. 자바1.8과 JavaFX GUI를 이용해 간단한 메모장을 만들어 보았습니다.',
+			 			   '2019-02-13',
+			 			   '2019-03-27',
+			 			   NOW(),
+			 			   'https://www.naver.com');
+
+INSERT INTO PROJECT VALUES('PR004',
+			 			   '포트폴리오',
+			 			   'Rest api + Vue를 이용한 포트폴리오 사이트',
+			 			   'Spring Framework를 이용해 프리랜서 프로젝트 계약사이트를 만들어 보았습니다. 자바1.8과 JavaFX GUI를 이용해 간단한 메모장을 만들어 보았습니다.',
+			 			   '2019-07-25',
+			 			   '2019-08-31',
+			 			   NOW(),
+			 			   'https://www.naver.com');
 COMMIT;
