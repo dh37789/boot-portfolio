@@ -28,5 +28,12 @@ public class SkillCls {
 		this.skill_cls_no = skill_cls_no;
 		this.skill_cls_nm = skill_cls_nm;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "SkillCls {" +
+				"skill_cls_no='" + skill_cls_no + '\'' +
+				", skill_cls_nm='" + skill_cls_nm + '\'' +
+				'}';
+	}
 }

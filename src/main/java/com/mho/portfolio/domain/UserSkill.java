@@ -58,4 +58,14 @@ public class UserSkill implements Serializable{
 	public boolean equals(Object obj) {
 		return super.equals(obj);
 	}
+
+	@Override
+	public String toString() {
+		return "UserSkill {" +
+				"id='" + id + '\'' +
+				", skill_no='" + skill_no + '\'' +
+				", skill_lev='" + skill_lev + '\'' +
+				", skill=" + skill +
+				'}';
+	}
 }

@@ -25,5 +25,12 @@ public class Authority {
 		this.auth_id = auth_id;
 		this.auth_name = auth_name;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "Authority {" +
+				"auth_id='" + auth_id + '\'' +
+				", auth_name='" + auth_name + '\'' +
+				'}';
+	}
 }

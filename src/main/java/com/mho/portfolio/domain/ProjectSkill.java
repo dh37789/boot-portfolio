@@ -24,8 +24,17 @@ public class ProjectSkill{
   @Column(name = "SKILL_NO")
   private String skill_no;
 
+  @Builder
   public ProjectSkill(String proj_no, String skill_no) {
     this.proj_no = proj_no;
     this.skill_no = skill_no;
+  }
+
+  @Override
+  public String toString() {
+    return "ProjectSkill {" +
+        "proj_no='" + proj_no + '\'' +
+        ", skill_no='" + skill_no + '\'' +
+        '}';
   }
 }

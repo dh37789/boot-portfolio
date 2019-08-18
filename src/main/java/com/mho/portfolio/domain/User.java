@@ -118,4 +118,19 @@ public class User implements UserDetails{
 		return true;
 	}
 
+	@Override
+	public String toString() {
+		return "User {" +
+				"user_id='" + user_id + '\'' +
+				", user_mail='" + user_mail + '\'' +
+				", user_pass='" + user_pass + '\'' +
+				", user_nm='" + user_nm + '\'' +
+				", user_tel='" + user_tel + '\'' +
+				", user_add='" + user_add + '\'' +
+				", user_dtl='" + user_dtl + '\'' +
+				", user_gitUrl='" + user_gitUrl + '\'' +
+				", user_blogUrl='" + user_blogUrl + '\'' +
+				", user_birth='" + user_birth + '\'' +
+				'}';
+	}
 }

@@ -68,5 +68,18 @@ public class Project {
     this.proj_git = proj_git;
   }
 
-
+  @Override
+  public String toString() {
+    return "Project {" +
+        "proj_no='" + proj_no + '\'' +
+        ", proj_title='" + proj_title + '\'' +
+        ", proj_subcon='" + proj_subcon + '\'' +
+        ", proj_con='" + proj_con + '\'' +
+        ", proj_start='" + proj_start + '\'' +
+        ", proj_end='" + proj_end + '\'' +
+        ", proj_date='" + proj_date + '\'' +
+        ", proj_git='" + proj_git + '\'' +
+        ", skill=" + skill +
+        '}';
+  }
 }

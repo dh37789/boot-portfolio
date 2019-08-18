@@ -50,4 +50,15 @@ public class Skill {
     this.skill_cls_no = skill_cls_no;
     this.skill_img = skill_img;
   }
+
+  @Override
+  public String toString() {
+    return "Skill {" +
+        "skill_no='" + skill_no + '\'' +
+        ", skill_nm='" + skill_nm + '\'' +
+        ", skill_cls_no='" + skill_cls_no + '\'' +
+        ", skill_img='" + skill_img + '\'' +
+        ", skillCls=" + skillCls +
+        '}';
+  }
 }
