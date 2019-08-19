@@ -24,7 +24,7 @@ public class UserController {
 		this.responseService = responseService;
 	}
 	
-	@GetMapping(value="/user")
+	@GetMapping(value="")
 	public ListResult<User> findAllUser(){
 		return responseService.getListResult(userService.getAll());
 	}

@@ -12,13 +12,13 @@ import com.mho.portfolio.model.response.CommonResult;
 @RequestMapping(value = "/exception")
 public class ExceptionController {
 
-	@GetMapping(value = "/entrypoint")
-	public CommonResult entrypoionException() {
-		throw new AuthenticationEntryPointException();
-	}
-	
-	@GetMapping(value = "/accessdenied")
-	public CommonResult accessdeniedException() {
-		throw new AccessDeniedException();
-	}
+  @GetMapping(value = "/entrypoint")
+  public CommonResult entrypoionException() {
+    throw new AuthenticationEntryPointException();
+  }
+
+  @GetMapping(value = "/accessdenied")
+  public CommonResult accessdeniedException() {
+    throw new AccessDeniedException();
+  }
 }

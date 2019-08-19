@@ -49,7 +49,7 @@ public class Project {
   @Column(name = "PROJ_GIT")
   private String proj_git;
 
-  @ManyToMany(fetch = FetchType.EAGER)
+  @OneToMany(fetch = FetchType.EAGER)
   @JoinTable(name="PEOJECTSKILL",
              joinColumns = @JoinColumn(name = "PROJ_NO", referencedColumnName = "PROJ_ID"),
              inverseJoinColumns = @JoinColumn(name = "SKILL_NO", referencedColumnName = "SKILL_NO"))
