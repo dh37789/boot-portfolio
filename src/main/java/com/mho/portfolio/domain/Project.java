@@ -50,8 +50,8 @@ public class Project {
   private String proj_git;
 
   @OneToMany(fetch = FetchType.EAGER)
-  @JoinTable(name="PEOJECTSKILL",
-             joinColumns = @JoinColumn(name = "PROJ_NO", referencedColumnName = "PROJ_ID"),
+  @JoinTable(name="PROJECTSKILL",
+             joinColumns = @JoinColumn(name = "PROJ_NO", referencedColumnName = "PROJ_NO"),
              inverseJoinColumns = @JoinColumn(name = "SKILL_NO", referencedColumnName = "SKILL_NO"))
   private List<Skill> skill = new ArrayList<>();
 
@@ -79,7 +79,7 @@ public class Project {
         ", proj_end='" + proj_end + '\'' +
         ", proj_date='" + proj_date + '\'' +
         ", proj_git='" + proj_git + '\'' +
-        ", skill=" + skill +
+        ", skill=" + skill.toString() +
         '}';
   }
 }

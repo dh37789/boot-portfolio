@@ -14,7 +14,7 @@ import lombok.Setter;
 @Getter @Setter
 @Table(name = "PROJECTSKILL")
 @NoArgsConstructor
-public class ProjectSkill{
+public class ProjectSkill implements Serializable{
 
   @Id
   @Column(name = "PROJ_NO")
