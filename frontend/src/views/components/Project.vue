@@ -5,19 +5,29 @@
     </div>
     <div class="card-body bg-white">
       <h5 class="card-title">
-        <strong>{{project.proj_title}}</strong>
-        <a class="git" target="_blank" rel="noopener" :href="project.proj_git">
-          <i class="fa fa-github"></i>
-        </a>
+        <div class="row">
+          <div class="col-10">
+            <strong>{{project.proj_title}}</strong>
+          </div>
+          <div class="col-2">
+            <a class="git" target="_blank" rel="noopener" :href="project.proj_git">
+              <i class="fa fa-github fa-lg"></i>
+            </a>
+          </div>
+        </div>
       </h5>
       <p class="card-text">{{project.proj_subcon}}</p>
-      <h6 class="card-subTitle"><small>사용언어</small></h6>
-      <div class="skill">
-        <template v-for="skill of project.skill">
-          <badge pill type="default" class="mr-1">{{skill.skill_nm}}</badge>
-        </template>
-      </div>
     </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">
+<!--        <h6 class="card-subTitle"><small>사용언어</small></h6>-->
+        <div class="skill">
+          <template v-for="skill of project.skill">
+            <badge pill type="default" class="mr-1">{{skill.skill_nm}}</badge>
+          </template>
+        </div>
+      </li>
+    </ul>
     <div class="card-footer">
       <small class="text-muted">{{project.proj_start}} ~ {{project.proj_end}}</small>
       <a href="#">자세히</a>
