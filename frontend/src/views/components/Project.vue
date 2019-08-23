@@ -22,8 +22,8 @@
       <li class="list-group-item">
 <!--        <h6 class="card-subTitle"><small>사용언어</small></h6>-->
         <div class="skill">
-          <template v-for="skill of project.skill">
-            <badge pill type="default" class="mr-1">{{skill.skill_nm}}</badge>
+          <template v-for="(skill, idx) of project.skill">
+            <badge pill type="default" class="mr-1" :key="idx">{{skill.skill_nm}}</badge>
           </template>
         </div>
       </li>

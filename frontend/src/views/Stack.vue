@@ -20,10 +20,6 @@
                   <img class="skillIcon" v-if="list.skill.skill_cls_no == '1'" v-bind:src="'img/skill/' + list.skill.skill_img">
                   <div class="links" v-if="list.skill.skill_cls_no == '1'">
                     <p class="title">{{ list.skill.skill_nm }}</p>
-                    <p v-if="list.skill_lev == '1'">Beginner</p>
-                    <p v-if="list.skill_lev == '2'">Normal</p>
-                    <p v-if="list.skill_lev == '3'">Intermediate</p>
-                    <p v-if="list.skill_lev == '4'">Advanced</p>
                   </div>
                 </div>
               </template>
@@ -39,10 +35,6 @@
                   <img class="skillIcon" v-if="list.skill.skill_cls_no == '2'" v-bind:src="'img/skill/' + list.skill.skill_img">
                   <div class="links" v-if="list.skill.skill_cls_no == '2'">
                     <p class="title">{{ list.skill.skill_nm }}</p>
-                    <p v-if="list.skill_lev == '1'">Beginner</p>
-                    <p v-if="list.skill_lev == '2'">Normal</p>
-                    <p v-if="list.skill_lev == '3'">Intermediate</p>
-                    <p v-if="list.skill_lev == '4'">Advanced</p>
                   </div>
                 </div>
               </template>
@@ -58,10 +50,6 @@
                   <img class="skillIcon" v-if="list.skill.skill_cls_no == '3'" v-bind:src="'img/skill/' + list.skill.skill_img">
                   <div class="links" v-if="list.skill.skill_cls_no == '3'">
                     <p class="title">{{ list.skill.skill_nm }}</p>
-                    <p v-if="list.skill_lev == '1'">Beginner</p>
-                    <p v-if="list.skill_lev == '2'">Normal</p>
-                    <p v-if="list.skill_lev == '3'">Intermediate</p>
-                    <p v-if="list.skill_lev == '4'">Advanced</p>
                   </div>
                 </div>
               </template>
@@ -77,10 +65,6 @@
                   <img class="skillIcon" v-if="list.skill.skill_cls_no == '4'" v-bind:src="'img/skill/' + list.skill.skill_img">
                   <div class="links" v-if="list.skill.skill_cls_no == '4'">
                     <p class="title">{{ list.skill.skill_nm }}</p>
-                    <p v-if="list.skill_lev == '1'">Beginner</p>
-                    <p v-if="list.skill_lev == '2'">Normal</p>
-                    <p v-if="list.skill_lev == '3'">Intermediate</p>
-                    <p v-if="list.skill_lev == '4'">Advanced</p>
                   </div>
                 </div>
               </template>
