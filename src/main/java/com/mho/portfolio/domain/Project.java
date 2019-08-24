@@ -49,6 +49,9 @@ public class Project {
   @Column(name = "PROJ_GIT")
   private String proj_git;
 
+  @Column(name = "PROJ_IMG")
+  private String proj_img;
+
   @OneToMany(fetch = FetchType.EAGER)
   @JoinTable(name="PROJECTSKILL",
              joinColumns = @JoinColumn(name = "PROJ_NO", referencedColumnName = "PROJ_NO"),
@@ -66,6 +69,7 @@ public class Project {
     this.proj_end = proj_end;
     this.proj_date = proj_date;
     this.proj_git = proj_git;
+    this.proj_img = proj_img;
   }
 
   @Override
@@ -79,6 +83,7 @@ public class Project {
         ", proj_end='" + proj_end + '\'' +
         ", proj_date='" + proj_date + '\'' +
         ", proj_git='" + proj_git + '\'' +
+        ", proj_img='" + proj_img + '\'' +
         ", skill=" + skill.toString() +
         '}';
   }

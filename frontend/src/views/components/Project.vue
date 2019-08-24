@@ -1,7 +1,7 @@
 <template>
   <div class="card border p-1 mb-2">
     <div class="card-img">
-      <img class="projectImg" v-lazy="'img/brand/window10.png'"/>
+      <img class="projectImg border" v-bind:src="'img/project/' + project.proj_img"/>
     </div>
     <div class="card-body bg-white">
       <h5 class="card-title">
@@ -19,11 +19,11 @@
       <p class="card-text">{{project.proj_subcon}}</p>
     </div>
     <ul class="list-group list-group-flush">
-      <li class="list-group-item">
+      <li class="list-group-item borderless">
 <!--        <h6 class="card-subTitle"><small>사용언어</small></h6>-->
         <div class="skill">
           <template v-for="(skill, idx) of project.skill">
-            <badge pill type="default" class="mr-1" :key="idx">{{skill.skill_nm}}</badge>
+            <badge pill type="primary" class="mr-1" :key="idx">{{skill.skill_nm}}</badge>
           </template>
         </div>
       </li>
@@ -60,5 +60,9 @@
 
   .card-img {
     border-color: white;
+  }
+
+  li.borderless {
+    border-top: 0 none;
   }
 </style>

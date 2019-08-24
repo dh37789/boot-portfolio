@@ -79,8 +79,11 @@ CREATE TABLE PROJECT
    PROJ_END      DATE,
    PROJ_DATE     DATE,
    PROJ_GIT		 VARCHAR(50),
+   PROJ_IMG      VARCHAR(50),
    PRIMARY KEY(PROJ_NO)
 );
+
+-- ALTER TABLE project ADD COLUMN PROJ_IMG VARCHAR(50);
 
 CREATE TABLE PROJECTSKILL
 (
@@ -170,7 +173,8 @@ INSERT INTO PROJECT VALUES('PR001',
 			 			   '2019-04-03', 
 			 			   '2019-04-05', 
 			 			   NOW(), 
-			 			   'https://www.naver.com');
+			 			   'https://www.naver.com',
+			 			   'memo.png');
 
 INSERT INTO PROJECT VALUES('PR002',
 			 			   '시각장애인을 위한 화장도우미', 
@@ -204,4 +208,5 @@ INSERT INTO PROJECTSKILL VALUES('PR001', '13');
 INSERT INTO PROJECTSKILL VALUES('PR002', '1');
 INSERT INTO PROJECTSKILL VALUES('PR002', '14');
 INSERT INTO PROJECTSKILL VALUES('PR002', '15');
+
 COMMIT;
